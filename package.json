@@ -1,0 +1,32 @@
+{
+  "name": "emotion-filter",
+  "version": "1.0.0",
+  "description": "Your photo will be analyzed by the Kairos Human Analytics SDK and return as a unique composition based upon it's findings. ",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofiagarcia/emotion-capture.git"
+  },
+  "keywords": [
+    "camera",
+    "emotion",
+    "selfie",
+    "mirror",
+    "new",
+    "media",
+    "creative",
+    "coding"
+  ],
+  "author": "Sofia Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sofiagarcia/emotion-capture/issues"
+  },
+  "homepage": "https://github.com/sofiagarcia/emotion-capture#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
