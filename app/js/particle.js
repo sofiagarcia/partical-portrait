@@ -1,5 +1,5 @@
-// rectMode(CENTER);
 
+//particles should only draw between video.width and video.height
 function Particle(x, y){
   this.x = x;
   this.y = y;
@@ -16,10 +16,16 @@ function Particle(x, y){
 
   this.show = function() {
     noStroke();
+
     var px = floor(this.x);
     var py = floor(this.y);
     var col = video.get(px, py);
     fill(col);
-    ellipse(this.x, this.y, this.r, this.r);
+    if(this.x < video.width && this.y < video.height){
+      ellipse(this.x + mouseX, this.y + mouseY, this.r, this.r);
+
+    }
+
+
   }
 }
