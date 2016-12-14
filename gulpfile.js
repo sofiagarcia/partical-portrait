@@ -1,6 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
+var useref = require('gulp-useref');
+var uglify = require('gulp-uglify');
+var gulpIf = require('gulp-if');
+// var browserSync = require('browser-sync').create();
+
 
 
 gulp.task('sass', function() {
@@ -10,13 +15,13 @@ gulp.task('sass', function() {
     .pipe(browserSync.reload({
       stream: true
     }))
-})
+});
 
 gulp.task('watch',['browserSync', 'sass'], function() {
-  gulp.watch('app/scss/**.*.scss', ['sass']);
-  //reload broswer when HTML or JS files change
-  gulp.watch('app/*.html', broswerSync.reload);
-  gulp.watch('app/js/**/*.js', broswerSync.reload);
+  gulp.watch('app/scss/**/*.scss', ['sass']);
+  //reload browser when HTML or JS files change
+  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
 gulp.task('browserSync', function(){
@@ -26,3 +31,10 @@ gulp.task('browserSync', function(){
     },
   })
 })
+
+gulp.task('useref', function() {
+  return gulp.src('appp/*.html')
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulp.dest('dist'))
+});
